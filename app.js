@@ -3,8 +3,9 @@ const ctx = canvas.getContext('2d');
 const gameSpeed = 100; 
 let distanceX= 20; 
 let distanceY = 0; 
-
+let score_span = document.getElementById('score'); 
 let score = 0; 
+const gameOverModal = document.querySelector('.game-over-modal'); 
 
 
 let snake = [{x: 160, y: 160}, {x: 140, y: 160},{x: 120, y: 160}, {x: 100, y: 160}];
@@ -13,8 +14,12 @@ main();
 createApple(); 
 document.addEventListener('keydown', changeDirection); 
 
+
 function main() {
-    if (endGame()) return; 
+    if (endGame()) {
+        gameOverModal.style.display ='block'; 
+        return;
+    } 
     setTimeout(function onTick() {
         drawCanvas(); 
         drawApple();
@@ -71,7 +76,8 @@ function advanceSnake() {
     snake.unshift(head); 
     if (snake[0].x ===appleX && snake[0].y ===appleY) {
         score += 10;
-        document.getElementById('score').innerHTML = score;  
+        score_span.innerHTML = score; 
+       // document.getElementById('score') = score;  
         createApple();
         
     } else {
@@ -116,7 +122,10 @@ function endGame() {
     const hitBottomWall = snake[0].y > canvas.height -20; 
 
     return hitLeftWall || hitRightWall || hitTopWall || hitBottomWall 
-
+    
 }
 
+function playAgain(){ 
+    window.location.reload(); 
+}
 
