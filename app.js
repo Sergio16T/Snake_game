@@ -3,7 +3,7 @@ const ctx = canvas.getContext('2d');
 const gameSpeed = 100; 
 let distanceX= 20; 
 let distanceY = 0; 
-let score_span = document.getElementById('score'); 
+let score_span = document.getElementById('score-board'); 
 let score = 0; 
 const gameOverModal = document.querySelector('.game-over-modal'); 
 

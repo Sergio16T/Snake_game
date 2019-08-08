@@ -8,3 +8,8 @@ Built a snake game using canvas element, practiced working with:
 6) truthy and falsy
 7) logical operators 
 8) dom manipulation
+9) created a modal with game over message and play again button
+10) CSS flexbox 
+
+![Snake Game Screen Shot](/images/ScreenShot.png)
+
